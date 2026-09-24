@@ -57,9 +57,9 @@ This repository tracks notable **SaaS platforms** and **open-source GitHub proje
 > **💡 Open-Source Ecosystem Overview**:  
 > While regulated ELD compliance and AI dash cam safety platforms are predominantly commercial, open-source options excel in self-hosted GPS tracking, protocol parsing, map routing, and open telematics pipelines. 
 
-*Sorted in descending order by GitHub Stars ⭐.*
+*Sorted in descending order by GitHub_Stars ⭐.*
 
-| Project / Repository | Description | License | GitHub Stars & Link 🌟 |
+| Project / Repository | Description | License | GitHub_Stars & Link 🌟 |
 | :--- | :--- | :--- | :--- |
 | **[Traccar](https://github.com/traccar/traccar)** 🛰️ | Leading open-source GPS tracking platform. Supports 200+ GPS protocols, real-time tracking, geofencing, reports, and multi-tenant management. | Apache-2.0 | [![Stars](https://img.shields.io/github/stars/traccar/traccar?style=social&color=white)](https://github.com/traccar/traccar/stargazers) |
 | **[OsmAnd](https://github.com/osmandapp/OsmAnd)** 🗺️ | Offline mobile map, navigation, and routing application based on OpenStreetMap (OSM) data for vehicle navigation. | GPL-3.0 | [![Stars](https://img.shields.io/github/stars/osmandapp/OsmAnd?style=social&color=white)](https://github.com/osmandapp/OsmAnd/stargazers) |
@@ -94,7 +94,7 @@ This repository tracks notable **SaaS platforms** and **open-source GitHub proje
 Contributions are highly welcome! To add a new platform or open-source tool:
 1. Fork this repository.
 2. Edit `README.md` to add your entry following the existing markdown table format.
-3. Ensure to include pricing, company size, or open-source star badge link.
+3. Ensure to include pricing, company size, or open-source Stars_Badge link.
 4. Open a Pull Request with a short description of the added tool.
 
 Please review our curated resources at [Awesome-Awesome-Awesome](https://github.com/ishandutta2007/Awesome-Awesome-Awesome).
