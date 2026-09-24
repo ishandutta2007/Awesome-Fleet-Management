@@ -1,0 +1,152 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="50%" stop-color="#1e1b4b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+
+    <!-- Grid Pattern -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255, 255, 255, 0.05)" stroke-width="1"/>
+    </pattern>
+
+    <!-- Glowing Accents -->
+    <linearGradient id="cyanPurple" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="50%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#8b5cf6"/>
+    </linearGradient>
+
+    <!-- Dynamic Flow Pulse -->
+    <linearGradient id="pulseGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#38bdf8" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#818cf8" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Drop Shadows -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <style>
+    .title { font-family: system-ui, -apple-system, sans-serif; font-weight: 800; font-size: 52px; fill: #ffffff; letter-spacing: -1px; }
+    .subtitle { font-family: system-ui, -apple-system, sans-serif; font-weight: 500; font-size: 20px; fill: #94a3b8; letter-spacing: 0.5px; }
+    .badge-text { font-family: system-ui, -apple-system, sans-serif; font-weight: 600; font-size: 13px; fill: #38bdf8; }
+    
+    /* Animations */
+    @keyframes dash {
+      to { stroke-dashoffset: -100; }
+    }
+    @keyframes pulse-glow {
+      0%, 100% { opacity: 0.3; transform: scale(1); }
+      50% { opacity: 0.7; transform: scale(1.05); }
+    }
+    @keyframes vehicle-move-1 {
+      0% { transform: translate(150px, 280px); }
+      50% { transform: translate(600px, 280px); }
+      100% { transform: translate(1050px, 280px); }
+    }
+    @keyframes vehicle-move-2 {
+      0% { transform: translate(100px, 80px); }
+      100% { transform: translate(1100px, 80px); }
+    }
+    @keyframes ping {
+      0% { r: 4px; opacity: 1; }
+      100% { r: 24px; opacity: 0; }
+    }
+
+    .dashed-line {
+      stroke-dasharray: 8 8;
+      animation: dash 3s linear infinite;
+    }
+    .glowing-orb {
+      animation: pulse-glow 4s ease-in-out infinite;
+    }
+    .ping-circle {
+      animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+    }
+  </style>
+
+  <!-- Background -->
+  <rect width="1200" height="360" fill="url(#bgGrad)" rx="16"/>
+  <rect width="1200" height="360" fill="url(#grid)" rx="16"/>
+
+  <!-- Dynamic Background Geometric Elements (Low opacity, behind text) -->
+  <circle cx="200" cy="180" r="140" fill="#3b82f6" opacity="0.1" class="glowing-orb" />
+  <circle cx="1000" cy="180" r="160" fill="#8b5cf6" opacity="0.1" class="glowing-orb" style="animation-delay: -2s;" />
+
+  <!-- Dynamic Telematics Route Lines (Positioned safely around text) -->
+  <!-- Top Route -->
+  <path d="M 50 80 Q 300 50 600 80 T 1150 80" fill="none" stroke="rgba(56, 189, 248, 0.2)" stroke-width="2" />
+  <path d="M 50 80 Q 300 50 600 80 T 1150 80" fill="none" stroke="url(#cyanPurple)" stroke-width="2" class="dashed-line" />
+
+  <!-- Bottom Route -->
+  <path d="M 50 280 Q 400 310 700 280 T 1150 280" fill="none" stroke="rgba(139, 92, 246, 0.2)" stroke-width="2" />
+  <path d="M 50 280 Q 400 310 700 280 T 1150 280" fill="none" stroke="url(#cyanPurple)" stroke-width="2" class="dashed-line" style="animation-duration: 4s;" />
+
+  <!-- GPS Waypoint Nodes (Top & Bottom) -->
+  <g transform="translate(300, 65)">
+    <circle cx="0" cy="0" r="4" fill="#38bdf8" />
+    <circle cx="0" cy="0" r="12" fill="none" stroke="#38bdf8" stroke-width="1" class="ping-circle" />
+  </g>
+  <g transform="translate(900, 275)">
+    <circle cx="0" cy="0" r="4" fill="#818cf8" />
+    <circle cx="0" cy="0" r="12" fill="none" stroke="#818cf8" stroke-width="1" class="ping-circle" style="animation-delay: -1s;" />
+  </g>
+
+  <!-- Floating Telematics Pill Cards (Flanking Sides - Away from Center Text) -->
+  <!-- Left Side Card -->
+  <g transform="translate(60, 140)" filter="url(#shadow)">
+    <rect width="180" height="70" rx="12" fill="rgba(30, 41, 59, 0.7)" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1" backdrop-filter="blur(8px)"/>
+    <circle cx="30" cy="35" r="14" fill="rgba(6, 182, 212, 0.2)"/>
+    <path d="M 24 35 L 28 39 L 36 31" fill="none" stroke="#06b6d4" stroke-width="2" stroke-linecap="round"/>
+    <text x="56" y="32" font-family="system-ui" font-size="11" fill="#94a3b8">REAL-TIME GPS</text>
+    <text x="56" y="50" font-family="system-ui" font-size="14" font-weight="bold" fill="#f8fafc">Active Tracking</text>
+  </g>
+
+  <!-- Right Side Card -->
+  <g transform="translate(960, 140)" filter="url(#shadow)">
+    <rect width="180" height="70" rx="12" fill="rgba(30, 41, 59, 0.7)" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1"/>
+    <circle cx="30" cy="35" r="14" fill="rgba(139, 92, 246, 0.2)"/>
+    <path d="M 26 29 L 34 35 L 26 41" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="56" y="32" font-family="system-ui" font-size="11" fill="#94a3b8">ELD &amp; COMPLIANCE</text>
+    <text x="56" y="50" font-family="system-ui" font-size="14" font-weight="bold" fill="#f8fafc">HOS Verified</text>
+  </g>
+
+  <!-- CENTER FOREGROUND CONTENT (Protected High Contrast Text & Badges) -->
+  <g transform="translate(600, 140)" text-anchor="middle" filter="url(#shadow)">
+    <!-- Top Category Pill Badge -->
+    <g transform="translate(-110, -50)">
+      <rect width="220" height="30" rx="15" fill="rgba(56, 189, 248, 0.1)" stroke="rgba(56, 189, 248, 0.3)" stroke-width="1"/>
+      <text x="110" y="20" text-anchor="middle" class="badge-text">🚚 FLEET TELEMATICS HUB</text>
+    </g>
+
+    <!-- Main Title with Gradient Fill -->
+    <text x="0" y="25" text-anchor="middle" class="title">Awesome Fleet Management</text>
+    
+    <!-- Subtitle -->
+    <text x="0" y="65" text-anchor="middle" class="subtitle">Curated SaaS Platforms, Telematics Suites &amp; Open-Source Projects</text>
+
+    <!-- Feature Tags -->
+    <g transform="translate(0, 100)" text-anchor="middle">
+      <text font-family="system-ui" font-size="13" fill="#64748b" font-weight="600">
+        <tspan fill="#38bdf8">GPS Tracking</tspan> • 
+        <tspan fill="#818cf8">ELD Compliance</tspan> • 
+        <tspan fill="#c084fc">AI Dash Cams</tspan> • 
+        <tspan fill="#34d399">Traccar Ecosystem</tspan>
+      </text>
+    </g>
+  </g>
+
+  <!-- Decorative Gradient Accent Bar at Bottom -->
+  <rect x="0" y="354" width="1200" height="6" fill="url(#cyanPurple)"/>
+</svg>
